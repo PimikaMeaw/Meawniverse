@@ -1,0 +1,362 @@
+
+
+// The following are SCSS variables to automate some of the values.
+// But don't feel limited by them. Change/replace whatever you want. 
+
+// The color of icons, text, and the big play button border.
+// Try changing to #0f0
+$primary-foreground-color: #fff; // #fff default
+
+// The default color of control backgrounds is mostly black but with a little
+// bit of blue so it can still be seen on all-black video frames, which are common.
+// Try changing to #900
+$primary-background-color: #2B333F;  // #2B333F default
+
+// Try changing to true
+$center-big-play-button: false; // true default
+
+.video-js {
+  
+  font-size: 10px;
+
+  
+  color: $primary-foreground-color;
+}
+
+
+.vjs-default-skin .vjs-big-play-button {
+  
+  font-size: 3em;
+
+  
+  $big-play-width: 3em; 
+  
+  $big-play-height: 1.5em;
+
+  line-height: $big-play-height;
+  height: $big-play-height;
+  width: $big-play-width;
+
+  
+  border: 0.06666em solid $primary-foreground-color;
+  
+  border-radius: 0.3em;
+
+  @if $center-big-play-button {
+    
+    left: 50%;
+    top: 50%;
+    margin-left: -($big-play-width / 2);
+    margin-top: -($big-play-height / 2);   
+  } @else {
+    
+    left: 0.5em;
+    top: 0.5em;
+  }
+}
+
+
+.video-js .vjs-control-bar,
+.video-js .vjs-big-play-button,
+.video-js .vjs-menu-button .vjs-menu-content {
+  
+  background-color: $primary-background-color;
+  
+  background-color: rgba($primary-background-color, 0.7);
+}
+
+// Make a slightly lighter version of the main background
+// for the slider background.
+$slider-bg-color: lighten($primary-background-color, 33%);
+
+
+.video-js .vjs-slider {
+  background-color: $slider-bg-color;
+  background-color: rgba($slider-bg-color, 0.5);
+}
+
+
+.video-js .vjs-volume-level,
+.video-js .vjs-play-progress,
+.video-js .vjs-slider-bar {
+  background: $primary-foreground-color;
+}
+
+
+.video-js .vjs-load-progress {
+  
+  background: lighten($slider-bg-color, 25%);
+  
+  background: rgba($slider-bg-color, 0.5);
+}
+
+
+.video-js .vjs-load-progress div {
+  
+  background: lighten($slider-bg-color, 50%);
+  
+  background: rgba($slider-bg-color, 0.75);
+}
+
+/* MINE */
+
+/* VIDEO PLAYER */
+
+.video-player {
+	display: flex;
+}
+
+.video-js {
+	width: 90%;
+	box-shadow: 0 0 15px 0 #ff47ad;
+	border-radius: 15px;
+    background-image: url(http://meawniverse-2.e-monsite.com/medias/images/background1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+	background-color: #010012c7;
+    background-blend-mode: multiply;
+	top: 0;
+    left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+@media (max-width: 700px) {
+	.video-js {
+	height: 250px;
+	}
+}
+
+.video-js .vjs-tech, .vjs-poster {
+	border-radius: 15px;
+	background-color: transparent;
+}
+
+.vjs-has-started.vjs-user-active:before, .vjs-has-started.vjs-paused.vjs-user-active:before, .vjs-has-started.vjs-paused.vjs-user-inactive:before, .vjs-has-started.vjs-playing.vjs-user-active:before,.vjs-user-active:before {
+	content: " ";
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 30%;
+	background-image: url(http://www.enchantingcastle.com/gifs%20&%20pixel%20art/dividers/21.gif);
+    background-position: top center;
+    background-repeat: repeat-x;
+    background-size: 25%;
+	z-index: 1;
+	border-radius: 15px;
+	opacity: 1;
+	transition: opacity .5s cubic-bezier(0.76, 0.27, 0.34, 0.8);
+}
+
+.vjs-has-started.vjs-playing.vjs-user-inactive:before {
+	content: " ";
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 30%;
+	background-image: url(http://www.enchantingcastle.com/gifs%20&%20pixel%20art/dividers/21.gif);
+    background-position: top center;
+    background-repeat: repeat-x;
+    background-size: 25%;
+	z-index: 1;
+	border-radius: 15px;
+	opacity: 0;
+	transition: opacity .5s cubic-bezier(0.76, 0.27, 0.34, 0.8);
+}
+
+.video-js .vjs-volume-level,
+.video-js .vjs-play-progress,
+.video-js .vjs-slider-bar {
+  background: linear-gradient(90deg, rgba(255,132,186,1) 0%, rgba(142,239,255,1) 100%);
+}
+
+.video-js .vjs-progress-holder .vjs-play-progress:before {
+    background-image: url(http://meawniverse-2.e-monsite.com/medias/images/puce13.gif);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: transparent;
+    text-shadow: none;
+    padding: 5px;
+    top: -10px;
+    transition: all 400ms cubic-bezier(.47,1.64,.41,.8); 
+}
+
+ .video-js .vjs-progress-holder .vjs-play-progress:hover:before {
+   transform: scalex(1);
+   top: -12px;
+}
+
+.video-js .vjs-slider, .video-js .vjs-load-progress, .video-js .vjs-load-progress div {
+  background: black;
+}
+
+.video-js .vjs-control-bar {
+    background-image: url(http://meawniverse-2.e-monsite.com/medias/images/puce12-1.gif);
+    background-size: contain;
+    background-position: center;
+    background-repeat: repeat-x;
+    background-color: transparent;
+    height: 35px;
+    width: 90%;
+    margin: auto;
+    padding-top: 3px;
+	margin-bottom: 1%;
+}
+
+.video-js .vjs-control-bar:before {
+    content: "B";
+    color: transparent;
+    position: absolute;
+    background-image: url(http://meawniverse-2.e-monsite.com/medias/images/puce12-2.gif);
+    background-size: cover;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    height: 50px;
+    padding: 7px;
+    left: -20px;
+    bottom: -7px;
+}
+
+.video-js .vjs-control-bar:after {
+    content: "B";
+    color: transparent;
+    position: absolute;
+    background-image: url(http://meawniverse-2.e-monsite.com/medias/images/puce12-3.gif);
+    background-size: cover;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    height: 50px;
+    padding: 7px;
+    right: -20px;
+    bottom: -7px;
+}
+
+.video-js .vjs-play-control:before, .video-js .vjs-control, .video-js .vjs-control:before {
+    color: white;
+    text-shadow: 0px 0px 5px black, 0px 0px 5px black !important;
+    transition: all 400ms cubic-bezier(.47,1.64,.41,.8); 
+}
+
+.video-js .vjs-play-control:hover, .video-js .vjs-control:hover, .video-js .vjs-play-control:hover:before, .video-js .vjs-control:hover:before {
+   text-shadow: 0px 0px 5px black, 0px 0px 5px black !important;
+   transform: scale(1.25);
+}
+  
+  .video-js .vjs-progress-control:hover {
+   transform: scalex(1);
+}
+
+.vjs-menu-button-popup .vjs-menu .vjs-menu-content {
+    bottom: 1.5em;
+    border: 5px solid;
+    border-radius: 7px;
+    background-color: rgb(255 207 242);
+    border-image-source: url(http://meawniverse-2.e-monsite.com/medias/images/puce9.gif);
+    border-image-slice: 30;
+    border-image-width: 7px;
+    border-image-outset: 1;
+    border-image-repeat: round;
+}
+
+.vjs-menu li.vjs-selected, .vjs-menu li.vjs-selected:focus, .vjs-menu li.vjs-selected:hover, .vjs-menu li.vjs-menu-item:focus, .vjs-menu li.vjs-menu-item:hover {
+    background-color: transparent;
+    color: white;
+    opacity: 1;
+    font-style: initial;
+}
+
+.vjs-menu li.vjs-menu-item, .vjs-menu li.vjs-menu-item {
+  background-color: transparent;
+  font-style: italic;
+  opacity: .5;
+  transition: opacity .25s linear;
+}
+
+.vjs-default-skin .vjs-big-play-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    right: 0;
+}
+
+.video-js .vjs-big-play-button, .vjs-big-play-button {
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	height: 25%;
+    background-color: transparent;
+    border: none;
+    color: transparent;
+    background-image: url(http://meawniverse-2.e-monsite.com/medias/images/puce14.gif);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+ 	outline: none;
+    transition: all 400ms cubic-bezier(.47,1.64,.41,.8); 
+}
+
+.video-js .vjs-big-play-button:hover, .video-js:hover .vjs-big-play-button, .video-js .vjs-big-play-button:focus {
+    background-color: transparent;
+    border: none;
+    color: transparent;
+     outline: none;
+    transform: scale(1.25);
+}
+
+.vjs-loading-spinner {
+    background-image: url(http://meawniverse-2.e-monsite.com/medias/images/puce15.gif);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 0px;
+    border: none;
+    opacity: 1;
+    height: 100%;
+    width: 15%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    right: 0;
+}
+
+.video-js .vjs-play-progress:after, .video-js .vjs-time-tooltip {
+    border: 5px solid;
+    border-radius: 7px;
+    background-color: rgb(255 207 242);
+    border-image-source: url(http://meawniverse-2.e-monsite.com/medias/images/puce9.gif);
+    border-image-slice: 30;
+    border-image-width: 7px;
+    border-image-outset: 1;
+    padding: 2px;
+	color: white;
+}
+
+.video-js .vjs-progress-control .vjs-mouse-display:after, .video-js.vjs-user-inactive .vjs-progress-control .vjs-mouse-display:after, .vjs-mouse-display .vjs-time-tooltip {
+    border: 5px solid;
+    border-radius: 7px;
+    background-color: rgb(255 207 242);
+    border-image-source: url(http://meawniverse-2.e-monsite.com/medias/images/puce9.gif);
+    border-image-slice: 30;
+    border-image-width: 7px;
+    border-image-outset: 1;
+    padding: 2px;
+    color: white;
+    font-style: italic;
+    opacity: 0.75;
+}
